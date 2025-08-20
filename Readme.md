@@ -67,12 +67,11 @@ async-errors/
    👉 http://localhost:3000 
 
 
-7. **📜 Scripts**
-| Command         | Description                     |
-| --------------- | ------------------------------- |
-| `npm start`     | Start the server                |
-| `npm run dev`   | Start with nodemon (hot reload) |
-| `node seeds.js` | Populate DB with sample data    |
+📜 Scripts
+Command	Description
+npm start	Start the server
+npm run dev	Start with nodemon (hot reload)
+node seeds.js	Populate DB with sample data
 
 
 🛠 Tech Stack
