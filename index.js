@@ -4,6 +4,12 @@ const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override')
 const AppError = require('./AppError');
+const session = require('express-session');
+const flash = require('connect-flash');
+
+const sessionOtpions = {secret : 'thisnotsecret', resave: false, saveUninitialized: false}
+app.use(session(sessionOtpions));
+app.use(flash());
 
 
 const Product = require('./models/product');
@@ -28,6 +34,11 @@ app.use(methodOverride('_method'))
 
 // FARM ROUTES
 
+app.use((req, res, next) => {
+    res.locals.messages = req.flash('success');
+    next();
+})
+
 app.get('/farms', async (req, res) => {
     const farms = await Farm.find({});
     res.render('farms/index', { farms });
@@ -51,6 +62,7 @@ app.delete('/farms/:id', async (req, res) => {
 app.post('/farms', async (req, res) => {
     const farm = new Farm(req.body);
     await farm.save();
+    req.flash('success', 'Succesfully Made a new Farm!!')
     res.redirect('/farms');
 })
 
