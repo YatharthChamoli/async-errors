@@ -67,12 +67,21 @@ async-errors/
    👉 http://localhost:3000 
 
 
-7. **📜 Scripts**
-| Command         | Description                     |
-| --------------- | ------------------------------- |
-| `npm start`     | Start the server                |
-| `npm run dev`   | Start with nodemon (hot reload) |
-| `node seeds.js` | Populate DB with sample data    |
+📜 Scripts
+Command	Description
+npm start	Start the server
+npm run dev	Start with nodemon (hot reload)
+node seeds.js	Populate DB with sample data
 
 
+🛠 Tech Stack
+Backend: Node.js, Express
+Database: MongoDB, Mongoose
+Frontend: EJS Templates
+Utilities: dotenv, nodemon
 
+⚡ Error Handling
+This project demonstrates async error handling using:
+AppError.js → Custom error class
+Centralized error middleware in index.js
+Cleaner async functions with try/catch and next(err)
